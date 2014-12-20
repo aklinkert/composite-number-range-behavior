@@ -1,6 +1,7 @@
 {
   "name": "apinnecke/composite-number-range-behavior",
   "description": "A behavior providing composite number ranges with a foreign key and a composite key.",
+  "license": "MIT",
   "require": {
     "propel/propel": "2.0.*@dev"
   },
