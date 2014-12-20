@@ -97,7 +97,7 @@ EOF;
         $sequence = $sequences->getFirst();
 
         $this->assertNotNull($sequence);
-        $this->assertEquals('child', $sequence->getTableName());
+        $this->assertEquals('child_table', $sequence->getTableName());
         $this->assertEquals($parentId, $sequence->getParentTableId());
         $this->assertEquals($child->getParentTableChildTableId(), $sequence->getParentTableMaxSubId());
     }
@@ -125,7 +125,7 @@ EOF;
         $sequence = $sequences->getFirst();
 
         $this->assertNotNull($sequence);
-        $this->assertEquals('child', $sequence->getTableName());
+        $this->assertEquals('child_table', $sequence->getTableName());
         $this->assertEquals($parentId, $sequence->getParentTableId());
         $this->assertEquals($child2->getParentTableChildTableId(), $sequence->getParentTableMaxSubId());
     }
@@ -154,7 +154,7 @@ EOF;
         $sequence = $sequences->getLast();
 
         $this->assertNotNull($sequence);
-        $this->assertEquals('child', $sequence->getTableName());
+        $this->assertEquals('child_table', $sequence->getTableName());
         $this->assertEquals($parent2Id, $sequence->getParentTableId());
         $this->assertEquals($child2->getParentTableChildTableId(), $sequence->getParentTableMaxSubId());
     }
