@@ -25,7 +25,7 @@ class CompositeNumberRangeBehaviorTest extends TestCase
     <table name="child_table">
         <column name="id" required="true" primaryKey="true" autoIncrement="true" type="INTEGER" />
         <column name="name" type="VARCHAR" size="50" required="false" />
-        <behavior name="APinnecke\CompositeNumberRange\CompositeNumberRangeBehavior">
+        <behavior name="\APinnecke\CompositeNumberRange\CompositeNumberRangeBehavior">
             <parameter name="foreignTable" value="parent_table"/>
         </behavior>
     </table>
