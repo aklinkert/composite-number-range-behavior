@@ -111,8 +111,6 @@ class MysqlPlatform extends BaseMysqlPlatform
             $ret .= $this->createTriggerDDL($table);
         }
 
-        echo $ret;
-
         return $ret;
     }
 
