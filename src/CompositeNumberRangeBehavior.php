@@ -5,7 +5,6 @@ namespace APinnecke\CompositeNumberRange;
 use Propel\Generator\Model\Behavior;
 use Propel\Generator\Model\Column;
 use Propel\Generator\Model\ForeignKey;
-use Propel\Generator\Model\Table;
 use Propel\Generator\Model\Unique;
 
 class CompositeNumberRangeBehavior extends Behavior
