@@ -1,0 +1,25 @@
+{
+  "name": "apinnecke/composite-number-range-behavior",
+  "description": "A behavior providing composite number ranges with a foreign key and a composite key.",
+  "require": {
+    "propel/propel": "2.0.*@dev"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "APinnecke\\CompositeNumberRange\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Alexander Pinnecke",
+      "email": "alexander.pinnecke@googlemail.com"
+    }
+  ],
+  "extra": {
+    "name": "composite_number_range",
+    "class": "\\APinnecke\\CompositeNumberRange\\CompositeNumberRangeBehavior"
+  }
+}
