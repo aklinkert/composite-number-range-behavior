@@ -165,6 +165,8 @@ class MysqlPlatform extends BaseMysqlPlatform
         $tableName = $table->getName();
 
         $sql = "
+DELIMITER $;
+
 CREATE TRIGGER {$triggerName}
 BEFORE INSERT ON ${tableName}
 FOR EACH ROW
@@ -174,10 +176,12 @@ BEGIN
     ) VALUES (
         '${tableName}', NEW.${foreignTableName}_id, LAST_INSERT_ID(1)
     ) ON DUPLICATE KEY
-        UPDATE ${foreignTableName}_max_sub_id = LAST_INSERT_ID(${foreignTableName}_max_sub_id +1)\\;
+        UPDATE ${foreignTableName}_max_sub_id = LAST_INSERT_ID(${foreignTableName}_max_sub_id +1);
 
-    SET NEW.${foreignTableName}_${tableName}_id = LAST_INSERT_ID()\\;
-END\\;
+    SET NEW.${foreignTableName}_${tableName}_id = LAST_INSERT_ID();
+END
+
+DELIMITER ;
 ";
 
         return $sql;
