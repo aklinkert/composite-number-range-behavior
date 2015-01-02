@@ -134,7 +134,7 @@ class CompositeNumberRangeBehavior extends Behavior
 
             $sequenceTable->addColumn(
                 array(
-                    'name' => $foreignTableName . '_max_' . $tableName . '_id',
+                    'name' => $foreignTableName . '_max_sequence_id',
                     'type' => 'integer',
                     'required' => false,
                     'default' => null

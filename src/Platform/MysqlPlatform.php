@@ -170,11 +170,11 @@ BEFORE INSERT ON ${tableName}
 FOR EACH ROW
 BEGIN
     INSERT INTO ${foreignTableName}_sequence (
-        table_name, ${foreignTableName}_id, ${foreignTableName}_max_${tableName}_id
+        table_name, ${foreignTableName}_id, ${foreignTableName}_max_sequence_id
     ) VALUES (
         '${tableName}', NEW.${foreignTableName}_id, LAST_INSERT_ID(1)
     ) ON DUPLICATE KEY
-        UPDATE ${foreignTableName}_max_${tableName}_id = LAST_INSERT_ID(${foreignTableName}_max_${tableName}_id +1);
+        UPDATE ${foreignTableName}_max_sequence_id = LAST_INSERT_ID(${foreignTableName}_max_sequence_id +1);
 
     SET NEW.${foreignTableName}_${tableName}_id = LAST_INSERT_ID();
 END
