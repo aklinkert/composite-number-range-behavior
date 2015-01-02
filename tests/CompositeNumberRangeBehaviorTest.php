@@ -76,7 +76,7 @@ EOF;
 
         $this->assertTrue(method_exists($sequenceEntity, 'setTableName'));
         $this->assertTrue(method_exists($sequenceEntity, 'setParentTableId'));
-        $this->assertTrue(method_exists($sequenceEntity, 'setParentTableMaxChildTableId'));
+        $this->assertTrue(method_exists($sequenceEntity, 'setParentTableMaxSequenceId'));
     }
 
     /**
@@ -99,7 +99,7 @@ EOF;
         $this->assertNotNull($sequence);
         $this->assertEquals('child_table', $sequence->getTableName());
         $this->assertEquals($parentId, $sequence->getParentTableId());
-        $this->assertEquals($child->getParentTableChildTableId(), $sequence->getParentTableMaxChildTableId());
+        $this->assertEquals($child->getParentTableChildTableId(), $sequence->getParentTableMaxSequenceId());
     }
 
     /**
@@ -127,7 +127,7 @@ EOF;
         $this->assertNotNull($sequence);
         $this->assertEquals('child_table', $sequence->getTableName());
         $this->assertEquals($parentId, $sequence->getParentTableId());
-        $this->assertEquals($child2->getParentTableChildTableId(), $sequence->getParentTableMaxChildTableId());
+        $this->assertEquals($child2->getParentTableChildTableId(), $sequence->getParentTableMaxSequenceId());
     }
 
     /**
@@ -156,7 +156,7 @@ EOF;
         $this->assertNotNull($sequence);
         $this->assertEquals('child_table', $sequence->getTableName());
         $this->assertEquals($parent2Id, $sequence->getParentTableId());
-        $this->assertEquals($child2->getParentTableChildTableId(), $sequence->getParentTableMaxChildTableId());
+        $this->assertEquals($child2->getParentTableChildTableId(), $sequence->getParentTableMaxSequenceId());
     }
 }
  
