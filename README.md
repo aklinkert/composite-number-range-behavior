@@ -97,3 +97,8 @@ $document->save();
 $userDocumentId = $document->getUserDocumentId();
 // $userDocumentId contains 1
 ```
+
+## Migrations Notice
+Because `propel:migrations:diff` does not know anything about triggers, they have to be checked via SQL Statement. If you use triggers and change something on
+any table having triggers appended, they will always appear in your `down()` section of the migration. At the moment you have to remove them by hand,
+this bug will be solved in the future during Propel 2 release.
