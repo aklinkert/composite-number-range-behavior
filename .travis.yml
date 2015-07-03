@@ -13,3 +13,6 @@ before_script:
 
 script:
   - phpunit
+
+env:
+  - DB_USER=travis DB_PASS= DB_NAME=behavior_test

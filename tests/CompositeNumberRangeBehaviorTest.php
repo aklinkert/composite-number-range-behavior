@@ -35,7 +35,7 @@ EOF;
             $builder = new QuickBuilder();
             $builder->setPlatform(new MysqlPlatform());
             $builder->setSchema($schema);
-            $builder->build('mysql:host=127.0.0.1;dbname=behavior_test', 'travis', '', new MysqlAdapter());
+            $builder->build('mysql:host=127.0.0.1;dbname=' . getenv('DB_NAME'), getenv('DB_USER'), getenv('DB_PASS'), new MysqlAdapter());
         }
 
         $this->parent = new \ParentTable();
