@@ -85,6 +85,8 @@ class CompositeNumberRangeBehavior extends Behavior
         $foreignKey = new ForeignKey($compositeKeyForeignKeyName);
         $foreignKey->addReference($foreignIdColumnName, 'id');
         $foreignKey->setForeignTableCommonName($foreignTableName);
+        $foreignKey->setOnUpdate(ForeignKey::CASCADE);
+        $foreignKey->setOnDelete(ForeignKey::CASCADE);
         $table->addForeignKey($foreignKey);
 
         $compositeKeyColumn = $table->addColumn(
