@@ -73,29 +73,38 @@ class CompositeNumberRangeBehavior extends Behavior
             }
         }
 
-        $foreignIdColumn = $table->addColumn(
-            array(
-                'name' => $foreignIdColumnName,
-                'type' => 'integer',
-                'required' => true
-            )
-        );
+        if ($table->hasColumn($foreignIdColumnName)) {
+            $foreignIdColumn = $table->getColumn($foreignIdColumnName);
+        } else {
+            $foreignIdColumn = $table->addColumn(
+                array(
+                    'name' => $foreignIdColumnName,
+                    'type' => 'integer',
+                    'required' => true
+                )
+            );
 
-        $compositeKeyForeignKeyName = $tableName . '_FK_' . $foreignIdColumnName;
-        $foreignKey = new ForeignKey($compositeKeyForeignKeyName);
-        $foreignKey->addReference($foreignIdColumnName, 'id');
-        $foreignKey->setForeignTableCommonName($foreignTableName);
-        $foreignKey->setOnUpdate(ForeignKey::CASCADE);
-        $foreignKey->setOnDelete(ForeignKey::CASCADE);
-        $table->addForeignKey($foreignKey);
+            $compositeKeyForeignKeyName = $tableName . '_FK_' . $foreignIdColumnName;
+            $foreignKey = new ForeignKey($compositeKeyForeignKeyName);
+            $foreignKey->addReference($foreignIdColumnName, 'id');
+            $foreignKey->setForeignTableCommonName($foreignTableName);
+            $foreignKey->setOnUpdate(ForeignKey::CASCADE);
+            $foreignKey->setOnDelete(ForeignKey::CASCADE);
+            $table->addForeignKey($foreignKey);
 
-        $compositeKeyColumn = $table->addColumn(
-            array(
-                'name' => $compositeKeyColumnName,
-                'type' => 'integer',
-                'required' => false,
-            )
-        );
+        }
+
+        if ($table->hasColumn($compositeKeyColumnName)) {
+            $compositeKeyColumn = $table->getColumn($compositeKeyColumnName);
+        } else {
+            $compositeKeyColumn = $table->addColumn(
+                array(
+                    'name' => $compositeKeyColumnName,
+                    'type' => 'integer',
+                    'required' => false,
+                )
+            );
+        }
 
         $index = new Unique($tableName . '_UQ_' . $foreignIdColumnName . '_' . $compositeKeyColumnName);
         $index->addColumn($foreignIdColumn);
