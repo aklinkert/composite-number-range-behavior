@@ -93,7 +93,7 @@ class CompositeNumberRangeBehavior extends Behavior
             array(
                 'name' => $compositeKeyColumnName,
                 'type' => 'integer',
-                'required' => true
+                'required' => false,
             )
         );
 
